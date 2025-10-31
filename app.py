@@ -204,8 +204,7 @@ def get_df(name: str) -> pd.DataFrame:
     path = data_path(name)
     if not os.path.exists(path):
         with open(path, "w", encoding="utf-8") as f:
-            f.write(",".join(cols) + "
-")
+            f.write(",".join(cols) + " ")
     with _LOCKS[name]:
         df = pd.read_csv(path, dtype=str).fillna("")
     for c in cols:
